@@ -1,5 +1,7 @@
+import 'package:flutrack/app/app_store.dart';
 import 'package:flutrack/hooks/use_bloc_state.dart';
-import 'package:flutrack/pages/home/home_bloc.dart';
+import 'package:flutrack/bloc/counter_cubit.dart';
+import 'package:flutrack/hooks/use_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
@@ -15,17 +17,14 @@ class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final _bloc = Provider.of<CounterCubit>(context);
+    final dispatch = useDispatch<AppStore>();
     void _incrementCounter() {
-      // _counter.value++;
       _bloc.increment();
+      dispatch(IncrementCounterAction());
     }
 
-    // final _counter = useState<int>(0);
-    final _counter = useBlocState(_bloc);
-    // void _incrementCounter() {
-    //   // _counter.value++;
-    //   _bloc.increment();
-    // }
+    // final _counter = useBlocState(_bloc);
+    final _counter = useSelector(selectCounter);
 
     return Scaffold(
       appBar: AppBar(
