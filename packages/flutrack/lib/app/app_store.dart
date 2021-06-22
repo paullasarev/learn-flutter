@@ -1,6 +1,11 @@
-class AppStore {
+import 'package:equatable/equatable.dart';
+
+class AppStore extends Equatable {
   final int counter;
   AppStore({this.counter = 0});
+
+  @override
+  List<Object> get props => [counter];
 }
 
 class IncrementCounterAction {}
