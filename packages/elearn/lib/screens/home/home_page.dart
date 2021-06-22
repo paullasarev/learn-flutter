@@ -1,5 +1,6 @@
 import 'package:elearn/app/app_state.dart';
 import 'package:elearn/hooks/use_store.dart';
+import 'package:elearn/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -18,6 +19,14 @@ class HomePage extends HookWidget {
       dispatch(IncrementCounterAction());
     }
 
+    void _onRoute() {
+      Navigator.pushNamed(
+        context,
+        '/splash',
+        // MaterialPageRoute(builder: (context) => SplashScreen()),
+      );
+    }
+
     // final _counter = useBlocState(_bloc);
     final _counter = useSelector(selectCounter);
 
@@ -25,7 +34,10 @@ class HomePage extends HookWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: HomeBody(counter: _counter),
+      body: HomeBody(
+        counter: _counter,
+        onRoute: _onRoute,
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',

@@ -3,14 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
-  HomeBody({
-    Key? key,
-    required int counter,
-  })  : _counter = counter,
+  HomeBody({Key? key, required int counter, required this.onRoute})
+      : _counter = counter,
         super(key: key);
 
   // final ValueNotifier<int> _counter;
   final int _counter;
+  final VoidCallback onRoute;
   final _buttonStyle =
       ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
@@ -50,8 +49,8 @@ class HomeBody extends StatelessWidget {
           ),
           ElevatedButton(
             style: _buttonStyle,
-            onPressed: () {},
-            child: const Text('Tap me'),
+            onPressed: onRoute,
+            child: const Text('Go next'),
           ),
         ],
       ),
