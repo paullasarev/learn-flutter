@@ -1,8 +1,9 @@
+import 'package:elearn/widgets/stack_boxes/stack_boxes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeBody extends StatelessWidget {
-  const HomeBody({
+  HomeBody({
     Key? key,
     required int counter,
   })  : _counter = counter,
@@ -10,6 +11,8 @@ class HomeBody extends StatelessWidget {
 
   // final ValueNotifier<int> _counter;
   final int _counter;
+  final _buttonStyle =
+      ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +32,7 @@ class HomeBody extends StatelessWidget {
       alignment: Alignment.center,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text(
             'You have pushed the button this many times:',
@@ -36,6 +40,18 @@ class HomeBody extends StatelessWidget {
           Text(
             '$_counter',
             style: Theme.of(context).textTheme.headline4,
+          ),
+          StackBoxes(),
+          Icon(
+            Icons.play_circle,
+            color: Colors.green,
+            size: 30.0,
+            semanticLabel: 'Play audio',
+          ),
+          ElevatedButton(
+            style: _buttonStyle,
+            onPressed: () {},
+            child: const Text('Tap me'),
           ),
         ],
       ),
