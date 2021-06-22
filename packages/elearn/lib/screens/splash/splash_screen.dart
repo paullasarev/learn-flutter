@@ -1,3 +1,4 @@
+import 'package:elearn/widgets/route_dialog.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -9,29 +10,8 @@ class SplashScreen extends StatelessWidget {
       showDialog(
         context: context,
         barrierDismissible: true,
-        builder: (_) => AlertDialog(
-          title: Text('Return to the Home screen?'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('No'),
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/home');
-              },
-              child: const Text('Yes'),
-              style: TextButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
-              ),
-            ),
-          ],
-        ),
+        builder: (_) =>
+            RouteDialog(title: 'Return to the Home screen?', route: '/home'),
       );
     }
 
