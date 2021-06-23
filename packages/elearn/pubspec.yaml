@@ -34,6 +34,11 @@ dependencies:
   equatable: ^2.0.3
   redux_remote_devtools: ^3.0.0
   redux_thunk: ^0.4.0
+  dio: ^4.0.0
+  flutter_dotenv: ^5.0.0
+  redux_dev_tools: ^0.7.0
+  flutter_redux_dev_tools: ^0.5.1
+  redux_logging: ^0.5.0
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +59,8 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
