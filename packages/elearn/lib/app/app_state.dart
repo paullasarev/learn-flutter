@@ -8,5 +8,5 @@ class AppState extends Equatable {
   AppState({required this.home, required this.todos});
 
   @override
-  List<Object> get props => [home];
+  List<Object> get props => [home, todos];
 }

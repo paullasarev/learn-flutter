@@ -9,6 +9,14 @@ import 'package:redux_thunk/redux_thunk.dart';
 import 'package:elearn/app/app_store.dart';
 import 'package:elearn/app/app_state.dart';
 
+String actionFormatter(
+  dynamic state,
+  dynamic action,
+  DateTime timestamp,
+) {
+  return '{Action: $action, ts: $timestamp}';
+}
+
 configureStore() async {
   await dotenv.load(fileName: '.env');
 
@@ -30,7 +38,7 @@ configureStore() async {
   // remoteDevtools.store = store;
   // await remoteDevtools.connect();
   // print('dev tools connected');
-  final logger = LoggingMiddleware.printer();
+  final logger = LoggingMiddleware.printer(formatter: actionFormatter);
 
   final store = Store<AppState>(
     appReducer,
