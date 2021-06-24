@@ -1,7 +1,9 @@
-import 'package:elearn/screens/todos/actions/load_todos.dart';
-import 'package:elearn/app/app_state.dart';
-import 'package:elearn/hooks/use_store.dart';
-import 'package:elearn/screens/todos/todos_store.dart';
+import 'package:elearn/hooks/use_bloc.dart';
+// import 'package:elearn/screens/todos/actions/load_todos.dart';
+// import 'package:elearn/app/app_state.dart';
+// import 'package:elearn/hooks/use_store.dart';
+import 'package:elearn/screens/todos/todos_cubit.dart';
+// import 'package:elearn/screens/todos/todos_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -16,10 +18,13 @@ class TodosScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    var dispatch = useDispatch<AppState>();
+    // var dispatch = useDispatch<AppState>();
+    final todosBloc = useBloc<TodosCubit>();
+
     useEffect(() {
-      print('onLoaad');
-      dispatch(loadTodos(1));
+      print('onLoad');
+      // dispatch(loadTodos(1));
+      todosBloc.load('1');
     }, []);
 
     _showDialog() {
@@ -31,17 +36,13 @@ class TodosScreen extends HookWidget {
       );
     }
 
-    final items = useSelector(selectTodos);
+    // final items = useSelector(selectTodos);
+    final items = useBlocState(todosBloc).items;
 
     return Scaffold(
       appBar: AppBar(title: Text("Todos"), actions: [
-        // const PopupMenuItem<MenuOptions>(
-        //   value: MenuOptions.showAll,
-        //   child: Text('showAll'),
-        // ),
         ElevatedButton(
           onPressed: () {
-            // Navigate back to first route when tapped.
             Navigator.pop(context);
           },
           child: Text('Go back!'),
@@ -61,13 +62,6 @@ class TodosScreen extends HookWidget {
                 ))
             .toList(),
       ),
-      // body: Center(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     crossAxisAlignment: CrossAxisAlignment.center,
-      //     children: [],
-      //   ),
-      // ),
     );
   }
 }

@@ -27,12 +27,3 @@ class TodosState extends Equatable {
   @override
   List<Object> get props => [items];
 }
-
-class Demo {
-  final int userId;
-  final int id;
-  final String title;
-  final bool completed;
-}
-
-class Demo {}

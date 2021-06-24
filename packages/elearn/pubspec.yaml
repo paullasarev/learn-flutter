@@ -39,6 +39,8 @@ dependencies:
   redux_dev_tools: ^0.7.0
   flutter_redux_dev_tools: ^0.5.1
   redux_logging: ^0.5.0
+  flutter_bloc: ^7.0.1
+  bloc: ^7.0.0
 
 dev_dependencies:
   flutter_test:
