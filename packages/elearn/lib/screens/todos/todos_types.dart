@@ -24,3 +24,7 @@ class TodosState extends Equatable {
   @override
   List<Object> get props => [items];
 }
+
+abstract class TodosRepository {
+  Future<List<Todo>> list(String userId);
+}

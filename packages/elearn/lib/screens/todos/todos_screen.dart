@@ -1,17 +1,13 @@
-import 'package:elearn/hooks/use_bloc.dart';
-// import 'package:elearn/screens/todos/actions/load_todos.dart';
-// import 'package:elearn/app/app_state.dart';
-// import 'package:elearn/hooks/use_store.dart';
-import 'package:elearn/screens/todos/todos_cubit.dart';
-// import 'package:elearn/screens/todos/todos_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import 'package:elearn/hooks/use_bloc.dart';
 import 'package:elearn/widgets/route_dialog.dart';
-
-class MenuOptions {
-  bool showAll = false;
-}
+// import 'package:elearn/screens/todos/actions/load_todos.dart';
+// import 'package:elearn/app/app_state.dart';
+// import 'package:elearn/hooks/use_store.dart';
+import './todos_bloc.dart';
+// import 'package:elearn/screens/todos/todos_store.dart';
 
 class TodosScreen extends HookWidget {
   const TodosScreen({Key? key}) : super(key: key);
@@ -19,7 +15,7 @@ class TodosScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // var dispatch = useDispatch<AppState>();
-    final todosBloc = useBloc<TodosCubit>();
+    final todosBloc = useBloc<TodosBloc>();
 
     useEffect(() {
       print('onLoad');

@@ -4,7 +4,7 @@ import 'package:elearn/screens/todos/actions/set_todos.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_thunk/redux_thunk.dart';
 
-import '../todos_state.dart';
+import '../todos_types.dart';
 
 ThunkAction<AppState> loadTodos(int userId) {
   return (Store store) async {

@@ -1,5 +1,5 @@
 import 'package:elearn/app/app_state.dart';
-import 'package:elearn/screens/todos/todos_state.dart';
+import 'package:elearn/screens/todos/todos_types.dart';
 
 import 'actions/set_todos.dart';
 

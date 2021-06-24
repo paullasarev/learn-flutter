@@ -1,14 +1,14 @@
-import 'package:elearn/screens/home/home_cubit.dart';
-import 'package:elearn/screens/todos/todos_cubit.dart';
+import 'package:elearn/screens/home/home_bloc.dart';
+import 'package:elearn/screens/todos/todos_bloc.dart';
+import 'package:elearn/screens/todos/todos_repository_http.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:elearn/app/app_state.dart';
 import 'package:elearn/screens/todos/todos_screen.dart';
-import 'package:elearn/screens/home/home_page.dart';
+import 'package:elearn/screens/home/home_screen.dart';
 import 'package:redux/redux.dart';
-// import 'package:redux_dev_tools/redux_dev_tools.dart';
 
 class App extends StatelessWidget {
   final Store<AppState> store;
@@ -18,11 +18,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<HomeCubit>(
-          create: (BuildContext context) => HomeCubit.init(),
+        BlocProvider<HomeBloc>(
+          create: (BuildContext context) => HomeBloc(),
         ),
-        BlocProvider<TodosCubit>(
-          create: (BuildContext context) => TodosCubit.init(),
+        BlocProvider<TodosBloc>(
+          create: (BuildContext context) => TodosBloc(TodosRepositoryHttp()),
         ),
       ],
       child: StoreProvider<AppState>(
@@ -33,9 +33,8 @@ class App extends StatelessWidget {
             primarySwatch: Colors.amber,
           ),
           initialRoute: '/home',
-          // home: HomePage(title: 'Flutter Demo Home Page'),
           routes: {
-            '/home': (context) => HomePage(title: 'Flutter Demo Home Page'),
+            '/home': (context) => HomeScreen(title: 'Flutter Demo Home Page'),
             '/splash': (context) => TodosScreen(),
           },
           // builder: (context, child) {

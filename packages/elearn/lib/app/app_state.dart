@@ -1,4 +1,4 @@
-import 'package:elearn/screens/todos/todos_state.dart';
+import 'package:elearn/screens/todos/todos_types.dart';
 import 'package:equatable/equatable.dart';
 import 'package:elearn/screens/home/home_state.dart';
 

@@ -1,4 +1,4 @@
-import 'package:elearn/screens/todos/todos_state.dart';
+import 'package:elearn/screens/todos/todos_types.dart';
 
 class SetTodos {
   final List<Todo> items;

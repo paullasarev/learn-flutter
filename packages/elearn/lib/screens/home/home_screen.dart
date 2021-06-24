@@ -1,22 +1,22 @@
-// import 'package:elearn/app/app_state.dart';
-import 'package:elearn/hooks/use_bloc.dart';
-// import 'package:elearn/hooks/use_store.dart';
-import 'package:elearn/screens/home/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+// import 'package:elearn/app/app_state.dart';
+import 'package:elearn/hooks/use_bloc.dart';
+// import 'package:elearn/hooks/use_store.dart';
+import './home_bloc.dart';
 // import './home_store.dart';
 import './home_body.dart';
 
-class HomePage extends HookWidget {
+class HomeScreen extends HookWidget {
   final String title;
 
-  HomePage({Key? key, required this.title}) : super(key: key);
+  HomeScreen({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     // final dispatch = useDispatch<AppState>();
-    final homeBloc = useBloc<HomeCubit>();
+    final homeBloc = useBloc<HomeBloc>();
     void _incrementCounter() {
       // dispatch(IncrementCounterAction());
       homeBloc.increment();
@@ -26,7 +26,6 @@ class HomePage extends HookWidget {
       Navigator.pushNamed(
         context,
         '/splash',
-        // MaterialPageRoute(builder: (context) => SplashScreen()),
       );
     }
 
