@@ -1,5 +1,5 @@
 import 'package:elearn/app/app_state.dart';
-import 'package:elearn/screens/home/home_state.dart';
+import 'package:elearn/screens/home/home_types.dart';
 
 class IncrementCounterAction {}
 

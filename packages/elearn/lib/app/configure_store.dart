@@ -1,4 +1,4 @@
-import 'package:elearn/screens/home/home_state.dart';
+import 'package:elearn/screens/home/home_types.dart';
 import 'package:elearn/screens/todos/todos_types.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 // import 'package:redux_dev_tools/redux_dev_tools.dart';
